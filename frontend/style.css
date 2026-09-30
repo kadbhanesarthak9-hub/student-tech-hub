@@ -1,0 +1,325 @@
+/* ============================================================
+   style.css  –  Student Tech Hub
+   A clean, modern, responsive stylesheet.
+   No frameworks – plain CSS only!
+   ============================================================ */
+
+/* ---------- CSS Custom Properties (variables) ---------- */
+:root {
+  --primary:     #4f46e5;   /* indigo */
+  --primary-dk:  #3730a3;
+  --success:     #16a34a;   /* green */
+  --success-dk:  #15803d;
+  --danger:      #dc2626;   /* red */
+  --bg:          #f8fafc;
+  --surface:     #ffffff;
+  --border:      #e2e8f0;
+  --text:        #1e293b;
+  --muted:       #64748b;
+  --radius:      12px;
+  --shadow:      0 4px 20px rgba(0, 0, 0, 0.08);
+  --transition:  0.2s ease;
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Layout Helper ---------- */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+  color: #fff;
+  padding: 48px 0 40px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.4);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.logo-icon {
+  font-size: 2.4rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+.site-header h1 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  font-size: 1.05rem;
+  opacity: 0.88;
+  margin-top: 4px;
+}
+
+/* ---------- Main ---------- */
+main {
+  flex: 1;
+  padding: 48px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* ---------- Sections ---------- */
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.section-desc {
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Event Grid ---------- */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+/* Individual event card */
+.event-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary), #7c3aed);
+  border-radius: 4px 0 0 4px;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.13);
+}
+
+.event-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.event-meta {
+  font-size: 0.875rem;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.event-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.event-badge {
+  display: inline-block;
+  background: #ede9fe;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), opacity var(--transition);
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dk);
+}
+
+.btn-success {
+  background: var(--success);
+  color: #fff;
+  width: 100%;
+  justify-content: center;
+  padding: 13px;
+  font-size: 1rem;
+}
+
+.btn-success:hover {
+  background: var(--success-dk);
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ---------- Status Messages ---------- */
+.status-msg {
+  margin-top: 14px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  min-height: 22px;
+  border-radius: 6px;
+  padding: 0 4px;
+}
+
+.status-msg.error   { color: var(--danger); }
+.status-msg.success { color: var(--success); }
+.status-msg.loading { color: var(--primary); }
+
+/* ---------- Form Card ---------- */
+.form-card {
+  max-width: 480px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-group input {
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  color: var(--text);
+  background: var(--bg);
+}
+
+.form-group input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.form-group input::placeholder {
+  color: #aab4be;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: #1e293b;
+  color: #94a3b8;
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 0.88rem;
+}
+
+/* ---------- Empty / Error State in Events ---------- */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--muted);
+  padding: 32px;
+  font-size: 1rem;
+}
+
+/* ---------- Responsive Tweaks ---------- */
+@media (max-width: 600px) {
+  .site-header {
+    padding: 36px 16px 28px;
+  }
+
+  main {
+    padding: 32px 16px;
+    gap: 40px;
+  }
+
+  .form-card {
+    max-width: 100%;
+  }
+}

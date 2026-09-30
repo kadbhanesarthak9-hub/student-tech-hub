@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Tech Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <span class="logo-icon">🚀</span>
+        <h1>Student Tech Hub</h1>
+      </div>
+      <p class="tagline">Empowering students through technology &amp; community</p>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="container">
+
+    <!-- ---- Upcoming Events Section ---- -->
+    <section class="section" id="events-section">
+      <div class="section-header">
+        <h2>📅 Upcoming Tech Events</h2>
+        <p class="section-desc">Stay updated with the latest workshops, hackathons, and meetups.</p>
+      </div>
+
+      <!-- Button to load events from the backend -->
+      <button id="load-events-btn" class="btn btn-primary" onclick="loadEvents()">
+        🔄 Load Events from Server
+      </button>
+
+      <!-- Status message shown while loading or on error -->
+      <p id="events-status" class="status-msg"></p>
+
+      <!-- Event cards will be injected here by script.js -->
+      <div id="events-list" class="events-grid"></div>
+    </section>
+
+    <!-- ---- Registration Form Section ---- -->
+    <section class="section" id="register-section">
+      <div class="section-header">
+        <h2>📝 Register as a Student</h2>
+        <p class="section-desc">Join our community to get notified about upcoming events.</p>
+      </div>
+
+      <form id="register-form" class="card form-card" onsubmit="registerStudent(event)">
+
+        <div class="form-group">
+          <label for="student-name">Full Name</label>
+          <input
+            type="text"
+            id="student-name"
+            name="name"
+            placeholder="e.g. Priya Sharma"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="student-email">Email Address</label>
+          <input
+            type="email"
+            id="student-email"
+            name="email"
+            placeholder="e.g. priya@example.com"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-success" id="register-btn">
+          ✅ Register Now
+        </button>
+
+        <!-- Success / error message shown after form submission -->
+        <p id="register-status" class="status-msg"></p>
+
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Student Tech Hub &nbsp;|&nbsp; Built with ❤️ for students</p>
+    </div>
+  </footer>
+
+  <!-- Link to our JavaScript file -->
+  <script src="script.js"></script>
+
+</body>
+</html>
